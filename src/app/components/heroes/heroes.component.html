@@ -2,19 +2,19 @@
 <hr>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
-    <div class="col">
+    <div *ngFor="let heroe of heroes; let i = index"  class="card animated fadeIn fast ">
         <div class="card">
-            <img src="assets/img/aquaman.png" class="card-img-top" alt="...">
+            <img [src]="heroe.img" class="card-img-top" [alt]="heroe.nombre">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
+                <h5 class="card-title">{{heroe.nombre}}</h5>
                 <p class="card-text">
-                    This is a longer card with supporting text below as a natural lead-in to
-                    additional content. This content is a little bit longer.
-                </p>
+                   {{heroe.bio}}
                 <div class="d-grid gap-2">
-                    <button class="btn btn-primary" type="button">
+                    <button (click)="verHeroe(i)"
+                    class="btn btn-primary" type="button">
                         Ver Mas..
                     </button>
+                    <!--<a [routerLink]="['/heroe', i]" href="#" class="btn btn-outline-primary" Ver mas Link...></a>-->
                 </div>
             </div>
         </div>
